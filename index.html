@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f4fa">
+  <meta name="description" content="A slower kind of luxury. Discover restorative facials, massage, and thoughtful rituals at Maison Sol Spa.">
+  <title>Maison Sol — A slower kind of luxury</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #f7f4fa;
+      --ink: #352642;
+      --muted: #786f80;
+      --accent: #75558d;
+      --line: #e2dce9;
+      --serif: "Playfair Display", Georgia, serif;
+      --sans: "DM Sans", Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    .announcement {
+      padding: 11px 20px;
+      background: var(--ink);
+      color: #f7f4fa;
+      text-align: center;
+      font-size: 10px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .announcement span { color: #cbb4db; }
+    header {
+      height: 82px;
+      padding: 0 7.2%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(38,59,50,.09);
+    }
+    .brand {
+      font-family: var(--serif);
+      font-size: 24px;
+      letter-spacing: .02em;
+      line-height: 1;
+    }
+    .brand small {
+      display: block;
+      margin-top: 6px;
+      font-family: var(--sans);
+      font-size: 8px;
+      letter-spacing: .3em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    nav { display: flex; align-items: center; gap: 36px; }
+    nav a {
+      font-size: 11px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      transition: color .2s ease;
+    }
+    nav a:hover { color: #8b6aa2; }
+    .nav-cta, .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 23px;
+      border: 1px solid var(--ink);
+      font-size: 10px;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      transition: background .2s, color .2s;
+    }
+    .nav-cta:hover, .button:hover { background: var(--ink); color: white; }
+    .menu-toggle { display: none; }
+
+    .hero {
+      min-height: 650px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding: 54px 7.2% 68px;
+      align-items: center;
+      gap: 5.3%;
+    }
+    .hero-copy { max-width: 500px; padding: 12px 0 20px 4%; }
+    .eyebrow {
+      margin: 0 0 25px;
+      color: var(--accent);
+      font-size: 10px;
+      letter-spacing: .23em;
+      text-transform: uppercase;
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      max-width: 550px;
+      margin-bottom: 23px;
+      font-family: var(--serif);
+      font-size: clamp(52px, 6vw, 82px);
+      font-weight: 400;
+      letter-spacing: -.045em;
+      line-height: 1.02;
+    }
+    h1 em { color: #8d70a4; font-weight: 400; }
+    .hero-copy > p:not(.eyebrow) {
+      max-width: 390px;
+      margin-bottom: 32px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.9;
+    }
+    .hero-actions { display: flex; align-items: center; gap: 27px; }
+    .button-filled { background: var(--ink); color: white; }
+    .button-filled:hover { background: #513b63; }
+    .text-link {
+      padding: 8px 0;
+      border-bottom: 1px solid #bcb0c7;
+      font-size: 11px;
+      letter-spacing: .06em;
+    }
+    .hero-image {
+      position: relative;
+      height: min(540px, 55vw);
+      min-height: 420px;
+      overflow: hidden;
+      background: #d9d4c7;
+    }
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center 52%;
+    }
+    .image-caption {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      padding: 17px 21px;
+      background: var(--paper);
+      color: var(--muted);
+      font-size: 9px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .promise {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      padding: 29px 10%;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .promise-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      color: #655071;
+      font-size: 10px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+    .promise-item + .promise-item { border-left: 1px solid var(--line); }
+    .promise-icon { font-size: 17px; }
+
+    .section { padding: 112px 9%; }
+    .section-heading { max-width: 620px; margin: 0 auto 52px; text-align: center; }
+    .section-heading .eyebrow { margin-bottom: 17px; }
+    h2 {
+      margin-bottom: 15px;
+      font-family: var(--serif);
+      font-size: clamp(37px, 4vw, 54px);
+      font-weight: 400;
+      letter-spacing: -.035em;
+      line-height: 1.1;
+    }
+    .section-heading > p:last-child {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.8;
+    }
+    .treatments {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .treatment { min-width: 0; }
+    .treatment-image { height: 290px; overflow: hidden; background: #e6e1d7; }
+    .treatment-image img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      transition: transform .5s ease;
+    }
+    .treatment:hover .treatment-image img { transform: scale(1.04); }
+    .treatment-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 20px 0 9px;
+      border-bottom: 1px solid var(--line);
+    }
+    .treatment h3 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 400;
+    }
+    .treatment-meta span { color: var(--muted); font-size: 11px; }
+    .treatment > p {
+      min-height: 42px;
+      margin: 11px 0 16px;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.7;
+    }
+    .treatment > a {
+      font-size: 9px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .ritual {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 570px;
+      background: #ebe5f0;
+    }
+    .ritual-image { min-height: 480px; overflow: hidden; }
+    .ritual-image img { width: 100%; height: 100%; display: block; object-fit: cover; }
+    .ritual-copy { align-self: center; max-width: 520px; padding: 75px 13%; }
+    .ritual-copy h2 { font-size: clamp(40px, 4.5vw, 62px); }
+    .ritual-copy > p:not(.eyebrow) {
+      margin-bottom: 29px;
+      color: #70647a;
+      font-size: 12px;
+      line-height: 1.95;
+    }
+    .quote {
+      padding: 100px 20px 108px;
+      text-align: center;
+    }
+    .quote-mark { margin-bottom: 15px; color: #a58bb8; font-family: var(--serif); font-size: 48px; }
+    .quote blockquote {
+      max-width: 770px;
+      margin: 0 auto 22px;
+      font-family: var(--serif);
+      font-size: clamp(27px, 3.2vw, 43px);
+      line-height: 1.35;
+    }
+    .quote cite {
+      color: var(--muted);
+      font-size: 9px;
+      font-style: normal;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .visit {
+      padding: 78px 7%;
+      background: var(--ink);
+      color: var(--paper);
+      text-align: center;
+    }
+    .visit .eyebrow { color: #cbb4db; }
+    .visit h2 { margin-bottom: 15px; }
+    .visit p:not(.eyebrow) { margin-bottom: 26px; color: #d1c9d8; font-size: 12px; }
+    .visit .button { border-color: #e7e8df; color: var(--paper); }
+    .visit .button:hover { background: var(--paper); color: var(--ink); }
+    footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 26px 7%;
+      color: var(--muted);
+      font-size: 9px;
+      letter-spacing: .08em;
+    }
+    footer .brand { color: var(--ink); font-size: 19px; }
+    footer .brand small { font-size: 7px; }
+    .footer-links { display: flex; gap: 22px; }
+
+    @media (max-width: 760px) {
+      header { height: 72px; padding: 0 6%; }
+      .menu-toggle {
+        display: block;
+        padding: 10px 0 10px 10px;
+        border: 0;
+        background: transparent;
+        color: var(--ink);
+        font-size: 10px;
+        letter-spacing: .12em;
+        text-transform: uppercase;
+      }
+      nav {
+        position: absolute;
+        z-index: 3;
+        top: 118px;
+        right: 0;
+        left: 0;
+        display: none;
+        align-items: stretch;
+        gap: 0;
+        padding: 10px 6% 20px;
+        background: var(--paper);
+        border-bottom: 1px solid var(--line);
+      }
+      nav.open { display: flex; flex-direction: column; }
+      nav a { padding: 14px 0; }
+      nav .nav-cta { margin-top: 7px; }
+      .hero { grid-template-columns: 1fr; gap: 34px; padding: 58px 6% 48px; }
+      .hero-copy { padding: 0; }
+      h1 { font-size: clamp(56px, 14vw, 78px); }
+      .hero-image { height: 110vw; min-height: 350px; max-height: 510px; }
+      .promise { padding: 23px 4%; }
+      .promise-item { flex-direction: column; gap: 6px; font-size: 8px; text-align: center; }
+      .section { padding: 78px 6%; }
+      .section-heading { margin-bottom: 35px; }
+      .treatments { grid-template-columns: 1fr; gap: 34px; }
+      .treatment-image { height: 78vw; max-height: 390px; }
+      .treatment > p { min-height: 0; }
+      .ritual { grid-template-columns: 1fr; }
+      .ritual-image { min-height: 0; height: 75vw; max-height: 430px; }
+      .ritual-copy { padding: 65px 8%; }
+      .quote { padding: 75px 7%; }
+      footer { flex-direction: column; text-align: center; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="announcement">A little space to come back to yourself <span>·</span> Now welcoming new guests</div>
+  <header>
+    <a class="brand" href="#" aria-label="Maison Sol home">maison sol<small>skin · body · stillness</small></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" aria-label="Main navigation">
+      <a href="#treatments">Treatments</a>
+      <a href="#about">Our approach</a>
+      <a href="#visit">Find us</a>
+      <a class="nav-cta" href="#visit">Book a visit</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">A neighborhood sanctuary</p>
+        <h1>A slower kind<br>of <em>luxury.</em></h1>
+        <p>Thoughtful treatments, considered ingredients, and the rare pleasure of having nowhere else to be.</p>
+        <div class="hero-actions">
+          <a class="button button-filled" href="#treatments">Explore treatments</a>
+          <a class="text-link" href="#about">Discover our story</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1400&q=85" alt="A calm spa retreat with a warm, softly lit interior">
+        <span class="image-caption">A moment, just for you</span>
+      </div>
+    </section>
+
+    <section class="promise" aria-label="Our values">
+      <div class="promise-item"><span class="promise-icon" aria-hidden="true">✳</span> Naturally considered</div>
+      <div class="promise-item"><span class="promise-icon" aria-hidden="true">⌁</span> Expert hands, gentle care</div>
+      <div class="promise-item"><span class="promise-icon" aria-hidden="true">◌</span> Always your own pace</div>
+    </section>
+
+    <section class="section" id="treatments">
+      <div class="section-heading">
+        <p class="eyebrow">Made for how you feel</p>
+        <h2>Care that meets you here.</h2>
+        <p>Every visit begins with a conversation. Every treatment is shaped around what you need today.</p>
+      </div>
+      <div class="treatments">
+        <article class="treatment">
+          <div class="treatment-image">
+            <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=900&q=85" alt="Relaxing facial treatment in a tranquil spa">
+          </div>
+          <div class="treatment-meta"><h3>The Sol Facial</h3><span>60 min · $120</span></div>
+          <p>A tailored facial to replenish, rebalance, and leave your skin quietly glowing.</p>
+          <a href="#visit">Discover the facial&nbsp; →</a>
+        </article>
+        <article class="treatment">
+          <div class="treatment-image">
+            <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=900&q=85" alt="A peaceful massage room prepared for a restorative treatment">
+          </div>
+          <div class="treatment-meta"><h3>Grounding Massage</h3><span>75 min · $145</span></div>
+          <p>Slow, intuitive bodywork to soften tension and bring you back to yourself.</p>
+          <a href="#visit">Discover the massage&nbsp; →</a>
+        </article>
+        <article class="treatment">
+          <div class="treatment-image">
+            <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=900&q=85" alt="A candlelit spa space set for a restorative ritual">
+          </div>
+          <div class="treatment-meta"><h3>The Full Exhale</h3><span>120 min · $210</span></div>
+          <p>Our signature head-to-toe ritual: a little of everything, and all the time you need.</p>
+          <a href="#visit">Discover the ritual&nbsp; →</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="ritual" id="about">
+      <div class="ritual-image">
+        <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=1200&q=85" alt="A peaceful treatment space filled with natural light and greenery">
+      </div>
+      <div class="ritual-copy">
+        <p class="eyebrow">The Maison Sol feeling</p>
+        <h2>Wellness without the rush.</h2>
+        <p>We believe care should feel like care. So we made a place where the details are thoughtful, the welcome is warm, and the only thing on your schedule is feeling a little more like you.</p>
+        <a class="button" href="#visit">Come as you are</a>
+      </div>
+    </section>
+
+    <section class="quote">
+      <div class="quote-mark" aria-hidden="true">“</div>
+      <blockquote>I left feeling like someone had gently pressed reset on my whole week.</blockquote>
+      <cite>— Amelia R. · A very happy regular</cite>
+    </section>
+
+    <section class="visit" id="visit">
+      <p class="eyebrow">Your time is waiting</p>
+      <h2>Make room for a little more you.</h2>
+      <p>Find us at 28 Willow Lane · Open Tuesday–Sunday, 9am–7pm</p>
+      <a class="button" href="mailto:hello@maisonsol.example?subject=Book%20a%20spa%20visit">Book your visit</a>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand" href="#" aria-label="Maison Sol home">maison sol<small>skin · body · stillness</small></a>
+    <span>© 2026 Maison Sol Spa. A little more room to breathe.</span>
+    <div class="footer-links"><a href="#treatments">Treatments</a><a href="#visit">Contact</a><a href="#about">Our approach</a></div>
+  </footer>
+  <script>
+    const menuToggle = document.querySelector(".menu-toggle");
+    const siteNav = document.querySelector("#site-nav");
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = siteNav.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    siteNav.addEventListener("click", (event) => {
+      if (event.target.closest("a")) {
+        siteNav.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+  </script>
+</body>
+</html>
